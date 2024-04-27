@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/tools">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000"
+        motion:motionInterpolator="@string/material_motion_easing_accelerated">
+        <KeyFrameSet>
+            <KeyAttribute
+                android:value="#ffcc0000"
+                motion:attributeName="cardBackgroundColor"
+                motion:framePosition="100"
+                motion:motionTarget="@id/cv1" />
+            <KeyAttribute
+                android:value="#33cc0000"
+                motion:attributeName="cardBackgroundColor"
+                motion:framePosition="0"
+                motion:motionTarget="@id/cv1" />
+        </KeyFrameSet>
+        <OnSwipe
+            motion:dragDirection="dragUp"
+            motion:dragScale="1000"
+            motion:touchAnchorId="@id/cv1" />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/cv1"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            motion:layout_constraintBottom_toBottomOf="parent" />
+        <Constraint
+            android:id="@+id/cv2"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="8dp"
+            motion:layout_constraintTop_toBottomOf="@id/cv1" />
+        <Constraint
+            android:id="@+id/cv3"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="8dp"
+            motion:layout_constraintTop_toBottomOf="@id/cv2" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/cv1"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/cv2"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="8dp"
+            motion:layout_constraintTop_toBottomOf="@id/cv1" />
+        <Constraint
+            android:id="@+id/cv3"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="8dp"
+            motion:layout_constraintTop_toBottomOf="@id/cv2" />
+    </ConstraintSet>
+</MotionScene>
